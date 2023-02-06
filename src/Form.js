@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Llibreria from "./Llibreria";
 
 export default function Form() {
 
@@ -10,6 +11,8 @@ export default function Form() {
     bookPagesRead: "",
   };
   const [form, setForm] = useState(FORM_INITIAL_STATE);
+  // const [state, setState] = useState({llibre:{}});
+  let llibreria = <Llibreria/>;
 
   function updateFormField(event) {
     const formField = event.target.id;
@@ -18,7 +21,8 @@ export default function Form() {
 
   function addBookToLibrary(event) {
     event.preventDefault();
-    console.log(form);
+    llibreria = <Llibreria llibre={form}/>
+    //setState({llibre:form});
   }
 
   return (
@@ -80,6 +84,7 @@ export default function Form() {
           <button type="submit">Guarda el llibre!</button>
         </div>
       </form>
+      {llibreria}
     </div>
   );
 }
