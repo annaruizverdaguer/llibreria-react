@@ -11,8 +11,7 @@ export default function Form() {
     bookPagesRead: "",
   };
   const [form, setForm] = useState(FORM_INITIAL_STATE);
-  // const [state, setState] = useState({llibre:{}});
-  let llibreria = <Llibreria/>;
+  const [llibreria, setLlibreria] = useState(<Llibreria llibre={null}/>);
 
   function updateFormField(event) {
     const formField = event.target.id;
@@ -21,8 +20,7 @@ export default function Form() {
 
   function addBookToLibrary(event) {
     event.preventDefault();
-    llibreria = <Llibreria llibre={form}/>
-    //setState({llibre:form});
+    setLlibreria(<Llibreria llibre={form}/>);
   }
 
   return (
