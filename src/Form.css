@@ -1,0 +1,70 @@
+:root {
+  --background-color: #555B6E;
+  --primary-green: #89B0AE;
+  --secondary-green: #BEE3DB;
+  --white: #FAF9F9;
+  --salmon: #FFD6BA;
+}
+
+.form-container {
+  padding: 50px 10px;
+  margin: auto;
+  margin-bottom: 50px;
+  max-width: 700px;
+  width: 90%;
+  background-color: var(--primary-green);
+  border-radius: 6px;
+}
+
+form {
+  width: 80%;
+  margin: auto;
+}
+
+.form-element {
+  margin: 10px;
+}
+
+label {
+  display: block;
+  margin: 5px;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  height: 30px;
+  font-family: 'Quicksand', sans-serif;
+  padding-left: 5px;
+  border-radius: 6px;
+  border: 2px solid var(--secondary-green);
+  transition: 0.3s ease-in-out;
+  background-color: var(--white);
+}
+
+select {
+  width: 102%;
+  height: 35px;
+}
+
+input:hover, select:hover{
+  border: 2px solid var(--background-color);
+}
+
+.save-button {
+  margin: 0px 5px;
+  border: 2px solid var(--salmon);
+  border-radius: 6px;
+  padding: 10px 25px;
+  color: var(--salmon);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  background-color: var(--background-color);
+}
+
+.save-button:hover {
+  background-color: var(--primary-green);
+  color: var(--background-color);
+  border: 2px solid var(--background-color);
+}

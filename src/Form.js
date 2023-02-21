@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Llibreria from "./Llibreria";
+import "./Form.css";
 
 export default function Form() {
 
@@ -24,9 +25,9 @@ export default function Form() {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={addBookToLibrary}>
-        <div>
+        <div className="form-element">
           <label htmlFor="bookTitle">Títol: </label>
           <input
             type="text"
@@ -35,7 +36,7 @@ export default function Form() {
             onChange={updateFormField}
           />
         </div>
-        <div>
+        <div className="form-element">
           <label htmlFor="bookCategory">Categoria: </label>
           <select id="bookCategory" required onChange={updateFormField}>
             Sel·lecciona una categoria
@@ -51,7 +52,7 @@ export default function Form() {
             <option value="thriller">Suspens</option>
           </select>
         </div>
-        <div>
+        <div className="form-element">
           <label htmlFor="bookYear">Any publicació: </label>
           <input
             type="number"
@@ -60,7 +61,7 @@ export default function Form() {
             onChange={updateFormField}
           />
         </div>
-        <div>
+        <div className="form-element">
           <label htmlFor="bookPages">Nº pàgines: </label>
           <input
             type="number"
@@ -69,7 +70,7 @@ export default function Form() {
             onChange={updateFormField}
           />
         </div>
-        <div>
+        <div className="form-element">
           <label htmlFor="bookPagesRead">% pàgines llegides:</label>
           <input
             type="range"
@@ -78,10 +79,11 @@ export default function Form() {
             onChange={updateFormField}
           />
         </div>
-        <div>
-          <button type="submit">Guarda el llibre!</button>
+        <div className="form-element">
+          <button type="submit" className="save-button">Guarda el llibre!</button>
         </div>
       </form>
+      <hr/>
       {llibreria}
     </div>
   );
