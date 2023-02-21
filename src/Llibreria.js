@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Llibreria.css";
 
 export default function Llibreria(props) {
     const [estanteria, setEstanteria] = useState([]);
@@ -8,17 +9,17 @@ export default function Llibreria(props) {
         let elementEstanteria = [];
         let estanteriaActual = [...estanteria, props.llibre]
         estanteriaActual.forEach((llibre, index) => {
-            let elementLlibre = <div key={`book-element-${index}`}>
+            let elementLlibre = <div key={`book-element-${index}`} className="book-container">
                 <h4 key="book-title">{llibre.bookTitle}</h4>
                 <ul key="book-attributes">
-                    <li key="category">{llibre.bookCategory}</li>
-                    <li key="year">{llibre.bookYear}</li>
-                    <li key="pages">{llibre.bookPages}</li>
-                    <li key="pages-read">{llibre.bookPagesRead}</li>
+                    <li key="category"><span className="text-highlight">Categoria: </span>{llibre.bookCategory}</li>
+                    <li key="year"><span className="text-highlight">Any de Publicació: </span>{llibre.bookYear}</li>
+                    <li key="pages"><span className="text-highlight">Pàgines: </span>{llibre.bookPages}</li>
+                    <li key="pages-read"><span className="text-highlight">Progrés: </span>{llibre.bookPagesRead}%</li>
                 </ul>
             </div>
             elementEstanteria.push(elementLlibre);
-        }); 
+        });
         setLlista(
         React.createElement('div', {
             children: elementEstanteria,
@@ -34,12 +35,23 @@ export default function Llibreria(props) {
       }, [props.llibre]);
 
     if (estanteria && estanteria.length !== 0) {
-        return (
-            <div>
-                Molt bé! Tens {estanteria.length} llibres a l'estanteria!
-                {llista}
-            </div>
-        )
+        if (estanteria.length == 1) {
+            return (
+                <div>
+                    Tens <span className="text-highlight">{estanteria.length}</span> llibre a l'estanteria!
+                    <hr/>
+                    {llista}
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    Tens <span className="text-highlight">{estanteria.length}</span> llibres a l'estanteria!
+                    <hr/>
+                    {llista}
+                </div>
+            )
+        }
     } else {
         return(
             <div>
@@ -47,7 +59,4 @@ export default function Llibreria(props) {
             </div>
         )
     }
-    
-
-
 }
