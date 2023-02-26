@@ -50,21 +50,3 @@ select {
 input:hover, select:hover{
   border: 2px solid var(--background-color);
 }
-
-.save-button {
-  margin: 0px 5px;
-  border: 2px solid var(--salmon);
-  border-radius: 6px;
-  padding: 10px 25px;
-  color: var(--salmon);
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 500;
-  transition: 0.3s ease-in-out;
-  background-color: var(--background-color);
-}
-
-.save-button:hover {
-  background-color: var(--primary-green);
-  color: var(--background-color);
-  border: 2px solid var(--background-color);
-}

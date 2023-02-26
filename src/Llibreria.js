@@ -5,12 +5,21 @@ export default function Llibreria(props) {
     const [estanteria, setEstanteria] = useState([]);
     const [llista, setLlista] = useState(<div></div>);
 
-    function printEstanteria() {
+    function deleteBook(index) {
+        let estanteriaActual = estanteria;
+        estanteriaActual.splice(index,1);
+        printEstanteria(estanteriaActual);
+    }
+
+    function printEstanteria(estanteriaActual) {
         let elementEstanteria = [];
-        let estanteriaActual = [...estanteria, props.llibre]
+        setEstanteria(estanteriaActual);
         estanteriaActual.forEach((llibre, index) => {
             let elementLlibre = <div key={`book-element-${index}`} className="book-container">
-                <h4 key="book-title">{llibre.bookTitle}</h4>
+                <div className="book-header">
+                    <h4 key="book-title">{llibre.bookTitle}</h4>
+                    <button onClick={function(e) {deleteBook(index)}} className="delete-button">X</button>
+                </div>
                 <ul key="book-attributes">
                     <li key="category"><span className="text-highlight">Categoria: </span>{llibre.bookCategory}</li>
                     <li key="year"><span className="text-highlight">Any de Publicació: </span>{llibre.bookYear}</li>
@@ -29,13 +38,13 @@ export default function Llibreria(props) {
 
     useEffect(() => {
         if (props.llibre !== null) {
-            setEstanteria(current => [...current, props.llibre])
-            printEstanteria();
+            let estanteriaActual = [...estanteria, props.llibre]
+            printEstanteria(estanteriaActual);
         }
       }, [props.llibre]);
 
     if (estanteria && estanteria.length !== 0) {
-        if (estanteria.length == 1) {
+        if (estanteria.length === 1) {
             return (
                 <div>
                     Tens <span className="text-highlight">{estanteria.length}</span> llibre a l'estanteria!
