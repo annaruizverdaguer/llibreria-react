@@ -5,8 +5,7 @@ export default function Llibreria(props) {
     const [estanteria, setEstanteria] = useState([]);
     const [llista, setLlista] = useState(<div></div>);
 
-    function deleteBook(index) {
-        let estanteriaActual = estanteria;
+    function deleteBook(index, estanteriaActual) {
         estanteriaActual.splice(index,1);
         printEstanteria(estanteriaActual);
     }
@@ -18,7 +17,7 @@ export default function Llibreria(props) {
             let elementLlibre = <div key={`book-element-${index}`} className="book-container">
                 <div className="book-header">
                     <h4 key="book-title">{llibre.bookTitle}</h4>
-                    <button onClick={function(e) {deleteBook(index)}} className="delete-button">X</button>
+                    <button onClick={function(e) {deleteBook(index, estanteriaActual)}} className="delete-button">X</button>
                 </div>
                 <ul key="book-attributes">
                     <li key="category"><span className="text-highlight">Categoria: </span>{llibre.bookCategory}</li>
