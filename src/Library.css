@@ -6,23 +6,7 @@
   --salmon: #FFD6BA;
 }
 
-h4 {
-  margin: 15px 20px 5px;
-}
-
-ul > li{
-  list-style-type: none; 
-  display: inline-block;
-  padding: 0px 20px 0px 0px; 
-}
-ul {
-  margin: 0px 20px;
-  padding: 0px; 
-  font-size: 12px;
-  font-style: italic;
-}
-
-.book-container {
+.book {
   background-color: var(--secondary-green);
   text-align: left;
   width: 80%;
@@ -33,6 +17,23 @@ ul {
   transition: 0.3s ease-in-out;
 }
 
-.book-container:hover{
+.book:hover{
   background-color: var(--white);
+}
+
+.book__title {
+  margin: 15px 20px 5px;
+}
+
+.book__attributes > .book__info {
+  list-style-type: none; 
+  display: inline-block;
+  padding: 0px 20px 0px 0px; 
+}
+
+.book__attributes {
+  margin: 0px 20px;
+  padding: 0px; 
+  font-size: 12px;
+  font-style: italic;
 }
