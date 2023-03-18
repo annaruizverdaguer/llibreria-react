@@ -3,7 +3,7 @@ import "./Library.css";
 
 export default function Library(props) {
     const [bookshelf, setBookShelf] = useState([]);
-    const [llista, setLlista] = useState(<div></div>);
+    const [list, setList] = useState(<div></div>);
 
     function deleteBook(index, currentBookshelf) {
         currentBookshelf.splice(index,1);
@@ -17,7 +17,7 @@ export default function Library(props) {
             let elementLlibre = <div key={`book-element-${index}`} className="book">
                 <div className="book-header">
                     <h4 key="book-title" className="book__title">{llibre.bookTitle}</h4>
-                    <button onClick={function(e) {deleteBook(index, currentBookshelf)}} className="delete-button">X</button>
+                    <button onClick={() => deleteBook(index, currentBookshelf)} className="delete-button">X</button>
                 </div>
                 <ul key="book-attributes" className="book__attributes">
                     <li key="category" className="book__info"><span className="text-highlight">Categoria: </span>{llibre.bookCategory}</li>
@@ -28,16 +28,12 @@ export default function Library(props) {
             </div>
             bookshelfElement.push(elementLlibre);
         });
-        setLlista(
-        React.createElement('div', {
-            children: bookshelfElement,
-            className: "booksInLibrary",
-          }));
+        setList( <div className="booksInLibrary"> {bookshelfElement} </div> );
     }
 
     useEffect(() => {
-        if (props.llibre !== null) {
-            let currentBookshelf = [...bookshelf, props.llibre]
+        if (props.llibre) {
+            const currentBookshelf = [...bookshelf, props.llibre]
             printBookShelf(currentBookshelf);
         }
       }, [props.llibre]);
@@ -47,7 +43,7 @@ export default function Library(props) {
             <div>
                 Tens <span className="text-highlight">{bookshelf.length}</span> llibre{bookshelf.length !== 1 ? "s" : ""} a l'estanteria!
                 <hr/>
-                {llista}
+                {list}
             </div>
         )
     } else {
