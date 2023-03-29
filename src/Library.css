@@ -37,3 +37,16 @@
   font-size: 12px;
   font-style: italic;
 }
+
+.book-header{
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+} 
+
+.delete-button {
+  padding: 5px 10px;
+  align-self: flex-end;
+  color: var(--background-color);
+  background-color: var(--primary-green);
+}

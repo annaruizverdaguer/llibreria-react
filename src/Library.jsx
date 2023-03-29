@@ -3,14 +3,22 @@ import "./Library.css";
 
 export default function Library(props) {
     const [bookshelf, setBookShelf] = useState([]);
-    const [llista, setLlista] = useState(<div></div>);
+    const [list, setList] = useState(<div></div>);
 
-    function printBookShelf() {
+    function deleteBook(index, currentBookshelf) {
+        currentBookshelf.splice(index,1);
+        printBookShelf(currentBookshelf);
+    }
+
+    function printBookShelf(currentBookshelf) {
         let bookshelfElement = [];
-        let currentBookshelf = [...bookshelf, props.llibre]
+        setBookShelf(currentBookshelf);
         currentBookshelf.forEach((llibre, index) => {
             let elementLlibre = <div key={`book-element-${index}`} className="book">
-                <h4 key="book-title" className="book__title">{llibre.bookTitle}</h4>
+                <div className="book-header">
+                    <h4 key="book-title" className="book__title">{llibre.bookTitle}</h4>
+                    <button onClick={() => deleteBook(index, currentBookshelf)} className="delete-button">X</button>
+                </div>
                 <ul key="book-attributes" className="book__attributes">
                     <li key="category" className="book__info"><span className="text-highlight">Categoria: </span>{llibre.bookCategory}</li>
                     <li key="year" className="book__info"><span className="text-highlight">Any de Publicació: </span>{llibre.bookYear}</li>
@@ -20,27 +28,22 @@ export default function Library(props) {
             </div>
             bookshelfElement.push(elementLlibre);
         });
-        setLlista(
-        React.createElement('div', {
-            children: bookshelfElement,
-            className: "booksInLibrary",
-          }));
+        setList( <div className="booksInLibrary"> {bookshelfElement} </div> );
     }
 
     useEffect(() => {
-        if (props.llibre !== null) {
-            setBookShelf(current => [...current, props.llibre])
-            printBookShelf();
+        if (props.llibre) {
+            const currentBookshelf = [...bookshelf, props.llibre]
+            printBookShelf(currentBookshelf);
         }
       }, [props.llibre]);
 
     if (bookshelf && bookshelf.length !== 0) {
-        let word = bookshelf.length !== 1 ? "llibres" : "llibre";
         return (
             <div>
-                Tens <span className="text-highlight">{bookshelf.length}</span> {word} a l'estanteria!
+                Tens <span className="text-highlight">{bookshelf.length}</span> llibre{bookshelf.length !== 1 ? "s" : ""} a l'estanteria!
                 <hr/>
-                {llista}
+                {list}
             </div>
         )
     } else {
