@@ -16,12 +16,16 @@ function App() {
     setBooks(books);
   }
 
+  function isActiveTab(tabName) {
+    return tabName === activeTab
+  }
+
   return (
     <div>
       <h1>LA TEVA LLIBRERIA</h1>
       <div className="App">
-        <button onClick={() => setActiveTab('addBook')}>Afegeix un llibre</button>
-        <button onClick={() => setActiveTab('filterBooks')}>Busca i filtra llibres</button>
+        <button onClick={() => setActiveTab('addBook')} className={isActiveTab('addBook') ? 'activeTab' : ""}>Afegeix un llibre</button>
+        <button onClick={() => setActiveTab('filterBooks')} className={isActiveTab('filterBooks') ? 'activeTab' : ""}>Busca i filtra llibres</button>
         {activeTab === 'addBook' ? (
           <div>
             <Form onAddBook={addBookToList}/>
