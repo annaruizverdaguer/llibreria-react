@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Library from "./Library";
 import "./Form.css";
 
-export default function Form() {
+export default function Form({onAddBook}) {
 
   const FORM_INITIAL_STATE = {
     bookTitle: "",
@@ -12,7 +11,6 @@ export default function Form() {
     bookPagesRead: "",
   };
   const [form, setForm] = useState(FORM_INITIAL_STATE);
-  const [library, setLibrary] = useState(<Library llibre={null}/>);
 
   function updateFormField(event) {
     const formField = event.target.id;
@@ -21,7 +19,7 @@ export default function Form() {
 
   function addBookToLibrary(event) {
     event.preventDefault();
-    setLibrary(<Library llibre={form}/>);
+    onAddBook(form);
   }
 
   return (
@@ -88,7 +86,6 @@ export default function Form() {
         </div>
       </form>
       <hr/>
-      {library}
     </div>
   );
 }
