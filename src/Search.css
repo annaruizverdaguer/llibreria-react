@@ -1,0 +1,33 @@
+:root {
+  --background-color: #555B6E;
+  --primary-green: #89B0AE;
+  --secondary-green: #BEE3DB;
+  --white: #FAF9F9;
+  --salmon: #FFD6BA;
+}
+
+.search {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.search__label {
+  display: block;
+  margin: 5px;
+  text-align: left;
+}
+
+.search__input {
+  width: 100%;
+  height: 30px;
+  font-family: 'Quicksand', sans-serif;
+  padding-left: 5px;
+  border-radius: 6px;
+  border: 2px solid var(--secondary-green);
+  transition: 0.3s ease-in-out;
+  background-color: var(--white);
+}
+
+.search__input:hover {
+  border: 2px solid var(--background-color);
+}
