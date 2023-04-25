@@ -6,17 +6,6 @@
   --salmon: #FFD6BA;
 }
 
-.form {
-  padding: 50px 10px;
-  margin: auto;
-  margin-bottom: 50px;
-  max-width: 700px;
-  width: 90%;
-  background-color: var(--primary-green);
-  border-radius: 6px;
-  
-}
-
 .form__element {
   width: 80%;
   margin: auto;
