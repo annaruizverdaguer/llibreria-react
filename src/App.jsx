@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./App.css";
 import Form from "./Form.jsx";
 import Library from "./Library";
+import Search from "./Search";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [filteredBooks, setFilteredBooks] = useState([]);
   const [activeTab, setActiveTab] = useState('addBook');
 
   function addBookToList(book) {
@@ -31,7 +33,12 @@ function App() {
             <Form onAddBook={addBookToList}/>
             <Library books={books} onRemove={removeBookFromList}/>
           </div>
-        ) : (<p>This is the tab for the filtering.</p>)}
+        ) : (
+          <div>
+            <Search books={books} setFilteredBooks={setFilteredBooks}/>
+            <Library books={filteredBooks} onRemove={removeBookFromList} mode="filteredList"/>
+          </div>
+          )}
       </div>
     </div>
   );
