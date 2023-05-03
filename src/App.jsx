@@ -3,6 +3,7 @@ import "./App.css";
 import Form from "./Form.jsx";
 import Library from "./Library";
 import Search from "./Search";
+import Filters from "./Filters";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -25,9 +26,9 @@ function App() {
   return (
     <div>
       <h1>LA TEVA LLIBRERIA</h1>
-      <div className="App">
-        <button onClick={() => setActiveTab('addBook')} className={isActiveTab('addBook') ? 'activeTab' : ""}>Afegeix un llibre</button>
-        <button onClick={() => setActiveTab('filterBooks')} className={isActiveTab('filterBooks') ? 'activeTab' : ""}>Busca i filtra llibres</button>
+      <div className="libraryApp">
+        <button onClick={() => setActiveTab('addBook')} className={isActiveTab('addBook') ? 'tabButton activeTab' : "tabButton"}>Afegeix un llibre</button>
+        <button onClick={() => setActiveTab('filterBooks')} className={isActiveTab('filterBooks') ? 'tabButton activeTab' : "tabButton"}>Busca i filtra llibres</button>
         {activeTab === 'addBook' ? (
           <div>
             <Form onAddBook={addBookToList}/>
@@ -35,7 +36,9 @@ function App() {
           </div>
         ) : (
           <div>
-            <Search books={books} setFilteredBooks={setFilteredBooks}/>
+            <button onClick={() => setFilteredBooks([])} className="cleanFiltersButton">Neteja els filtres</button>
+            <Search books={books} filteredBooks={filteredBooks} setFilteredBooks={setFilteredBooks}/>
+            <Filters books={books} filteredBooks={filteredBooks} setFilteredBooks={setFilteredBooks}/>
             <Library books={filteredBooks} onRemove={removeBookFromList} mode="filteredList"/>
           </div>
           )}

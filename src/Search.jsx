@@ -1,11 +1,20 @@
 import React from "react";
 import "./Search.css";
 
-export default function Search({books, setFilteredBooks}) {
+export default function Search({books, filteredBooks, setFilteredBooks}) {
     const filter = (event) => {
-        let newFilteredBooks = [];
-        books.forEach(book => { if (book.bookTitle.includes(event.target.value)) { newFilteredBooks.push(book) } })
+        let newFilteredBooks = filteredBooks;
+        books.forEach(book => { 
+            if (book.bookTitle.includes(event.target.value) && !newFilteredBooks.includes(book)) { newFilteredBooks.push(book) } 
+            else {
+                if (!book.bookTitle.includes(event.target.value) && newFilteredBooks.includes(book)) {
+                    let index = newFilteredBooks.indexOf(book);
+                    newFilteredBooks.splice(index,1);
+                }
+            }
+        })
         setFilteredBooks(newFilteredBooks);
+        console.log(newFilteredBooks);
     }
     return (
         <div>
