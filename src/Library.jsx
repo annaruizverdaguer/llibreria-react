@@ -17,7 +17,7 @@ export default function Library({books, onRemove, mode}) {
                 Tens <span className="text-highlight">{books.length}</span> llibre{books.length !== 1 ? "s" : ""}{endOfFirstSentence}
                 <hr/>
                 <div className="booksInLibrary" key="booksInLibrary">
-                    {books.map((book,index) => <Book book={book} onRemove={onRemove} index={index}/>)}
+                    {books.map((book,index) => <Book key={book.bookTitle + index} book={book} onRemove={onRemove} index={index}/>)}
                 </div>
             </div>
         )

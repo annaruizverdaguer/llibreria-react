@@ -1,9 +1,9 @@
 import React from "react";
 import "./Filters.css";
 
-export default function Filters({books, filteredBooks, setFilteredBooks}) {
+export default function Filters({books, onFilter}) {
     const categoryFilter = (event) => {
-        let newFilteredBooks = filteredBooks;
+        let newFilteredBooks = [];
         books.forEach(book => { 
             if (book.bookCategory.includes(event.target.value) && !newFilteredBooks.includes(book)) { newFilteredBooks.push(book) } 
             else {
@@ -13,8 +13,7 @@ export default function Filters({books, filteredBooks, setFilteredBooks}) {
                 }
             }
         })
-        setFilteredBooks(newFilteredBooks);
-        console.log(newFilteredBooks);
+        onFilter(newFilteredBooks);
     }
     return (
         <div>

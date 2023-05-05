@@ -1,9 +1,9 @@
 import React from "react";
 import "./Search.css";
 
-export default function Search({books, filteredBooks, setFilteredBooks}) {
-    const filter = (event) => {
-        let newFilteredBooks = filteredBooks;
+export default function Search({books, onSearch}) {
+    const search = (event) => {
+        let newFilteredBooks = [];
         books.forEach(book => { 
             if (book.bookTitle.includes(event.target.value) && !newFilteredBooks.includes(book)) { newFilteredBooks.push(book) } 
             else {
@@ -13,14 +13,14 @@ export default function Search({books, filteredBooks, setFilteredBooks}) {
                 }
             }
         })
-        setFilteredBooks(newFilteredBooks);
-        console.log(newFilteredBooks);
+        onSearch(newFilteredBooks);
+
     }
     return (
         <div>
             <div className="search">
                 <div className="search__label">Entra el títol d'un llibre per buscar-lo:</div>
-                <input type="text" onChange={filter} className="search__input"/>
+                <input type="text" onChange={search} className="search__input"/>
             </div>
             <hr/>
         </div>
