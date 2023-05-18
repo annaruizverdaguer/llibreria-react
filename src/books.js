@@ -2,35 +2,35 @@ const HARDCODED_BOOKS = [
     {
         bookTitle: 'hola',
         bookCategory: 'art',
-        bookYear: '2222',
+        bookYear: '2020',
         bookPages: '33333',
         bookPagesRead: '222'
     },
     {
         bookTitle: 'hola pepsicola',
         bookCategory: 'comic',
-        bookYear: '2232',
+        bookYear: '1995',
         bookPages: '3344333',
         bookPagesRead: '232'
     },
     {
         bookTitle: 'adeu',
         bookCategory: 'art',
-        bookYear: '2233',
+        bookYear: '1836',
         bookPages: '332433',
         bookPagesRead: '222'
     },
     {
         bookTitle: 'adeuuu',
         bookCategory: 'art',
-        bookYear: '2233',
+        bookYear: '2000',
         bookPages: '332433',
         bookPagesRead: '222'
     },
     {
         bookTitle: 'adeu andreu',
         bookCategory: 'comic',
-        bookYear: '2266',
+        bookYear: '1300',
         bookPages: '33355',
         bookPagesRead: '233'
     }

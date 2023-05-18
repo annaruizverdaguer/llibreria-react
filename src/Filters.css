@@ -20,7 +20,7 @@
 
 .filters__field {
   display: inline-block;
-  width: 47%;
+  width: 95%;
   margin: 5px;
   vertical-align:top;
 }
@@ -29,6 +29,14 @@
   display: block;
   margin: 5px;
   text-align: left;
+}
+
+.filters__criteria {
+  font-size: small;
+  font-style: italic;
+  text-align: left;
+  margin: 5px;
+  color: var(--background-color);
 }
 
 .filters__select, .filters__input {

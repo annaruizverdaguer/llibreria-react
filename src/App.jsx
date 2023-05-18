@@ -3,7 +3,8 @@ import "./App.css";
 import Form from "./Form.jsx";
 import Library from "./Library";
 import Search from "./Search";
-import Filters from "./Filters";
+import CategoryFilter from "./CategoryFilter.jsx"
+import RangeFilter from "./RangeFilter.jsx"
 import HARDCODED_BOOKS from "./books.js"
 
 function App() {
@@ -53,7 +54,14 @@ function App() {
             <Form onAddBook={addBookToList}/>
             <button onClick={() => setPrintedBooks(books)} className="cleanFiltersButton">Neteja els filtres</button>
             <Search books={books} onSearch={updateSearchedBooks}/>
-            <Filters books={books} onFilter={updateFilteredBooks}/>
+            <div className="filters">
+                <div className="filters__title">Més filtres:</div>
+                <CategoryFilter books={books} onFilter={updateFilteredBooks}/>
+                <RangeFilter books={books} filterType="year" filterMin={0} filterMax={2023} labelText="Any de publicació: " onFilter={updateFilteredBooks}/>
+                <RangeFilter books={books} filterType="pages" filterMin={0} filterMax={1000} labelText="Número de pàgines: " onFilter={updateFilteredBooks}/>
+                <RangeFilter books={books} filterType="pagesRead" filterMin={0} filterMax={100} labelText="% Pàgines llegides: " onFilter={updateFilteredBooks}/>
+            </div>
+            <hr/>
             <Library books={printedBooks} onRemove={removeBookFromList} mode="filteredList"/>
           </div>
       </div>
