@@ -1,12 +1,3 @@
-#root {
-  padding: 12px;
-  margin: auto;
-  --background-color: #555B6E;
-  --primary-green: #89B0AE;
-  --secondary-green: #BEE3DB;
-  --white: #FAF9F9;
-  --salmon: #FFD6BA;
-}
 .wrapper {
   position: relative;
   display: flex;
@@ -97,20 +88,20 @@
   transform: translateY(-50%);
   height: 6px;
   border-radius: 3px;
-  background: lightgrey;
+  background: var(--third-color);
+  opacity: 0.8;
 }
 .inner-rail {
   position: absolute;
   height: 100%;
   background: var(--background-color);
-  opacity: 0.5;
 }
 .control {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   position: absolute;
-  background: var(--salmon);
+  background: var(--fourth-color);
   top: 50%;
   margin-left: calc(16px / -2);
   transform: translate3d(0, -50%, 0);

@@ -1,13 +1,5 @@
-:root {
-  --background-color: #555B6E;
-  --primary-green: #89B0AE;
-  --secondary-green: #BEE3DB;
-  --white: #FAF9F9;
-  --salmon: #FFD6BA;
-}
-
 .book {
-  background-color: var(--secondary-green);
+  background-color: var(--second-color);
   text-align: left;
   width: 80%;
   margin: auto;
@@ -15,10 +7,12 @@
   padding: 10px;
   border-radius: 6px;
   transition: 0.3s ease-in-out;
+  border: 2px solid var(--background-color);
 }
 
 .book:hover{
-  background-color: var(--white);
+  background-color: var(--third-color);
+  border: 2px solid var(--fourth-color);
 }
 
 .book__title {
@@ -48,5 +42,13 @@
   padding: 5px 10px;
   align-self: flex-end;
   color: var(--background-color);
-  background-color: var(--primary-green);
+  border: 1.5px solid var(--background-color);
+  background-color: var(--first-color);
+  transition: 0.3s ease-in-out;
+  border-radius: 6px;
+}
+
+.delete-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
