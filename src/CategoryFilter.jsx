@@ -14,7 +14,7 @@ export default function CategoryFilter({books, onFilter}) {
                 }
             }
         })
-        onFilter(newFilteredBooks);
+        onFilter(newFilteredBooks, "category");
     }
 
     return (

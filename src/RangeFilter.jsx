@@ -37,7 +37,7 @@ export default function RangeFilter({books, filterType, filterMin, filterMax, la
                 }
             }
         })
-        onFilter(newFilteredBooks);
+        onFilter(newFilteredBooks, filterType);
     }
 
     useEffect(() => { filter(); }, [sliderValue]);
