@@ -1,0 +1,47 @@
+.filters {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.filters__title {
+  display: block;
+  margin: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.filters__field {
+  display: inline-block;
+  width: 95%;
+  margin: 5px;
+  vertical-align:top;
+}
+
+.filters__label {
+  display: block;
+  margin: 5px;
+  text-align: left;
+}
+
+.filters__criteria {
+  font-size: small;
+  font-style: italic;
+  text-align: left;
+  margin: 5px;
+  color: var(--background-color);
+}
+
+.filters__select, .filters__input {
+  width: 102%;
+  height: 35px;
+  font-family: 'Quicksand', sans-serif;
+  padding-left: 5px;
+  border-radius: 6px;
+  border: 2px solid var(--background-color);
+  transition: 0.3s ease-in-out;
+  background-color: var(--third-color);
+}
+
+.filters__select:hover, .filters__input:hover {
+  border: 2px solid var(--fourth-color);
+}

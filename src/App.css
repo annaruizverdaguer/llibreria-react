@@ -1,9 +1,11 @@
 :root {
-  --background-color: #555B6E;
-  --primary-green: #89B0AE;
-  --secondary-green: #BEE3DB;
-  --white: #FAF9F9;
-  --salmon: #FFD6BA;
+  padding: 12px;
+  margin: auto;
+  --background-color: #404965;
+  --first-color: #7d84b2;
+  --second-color: #d9dbf1;
+  --third-color: #f9f9ed;
+  --fourth-color: #dbf4a7;
 }
 
 body {
@@ -14,18 +16,18 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-.App {
+.libraryApp {
   padding: 50px 10px;
   margin: auto;
   margin-bottom: 50px;
   max-width: 700px;
   width: 90%;
-  background-color: var(--primary-green);
+  background-color: var(--first-color);
   border-radius: 6px;
 }
 
 h1 {
-  color: var(--salmon)
+  color: var(--fourth-color);
 }
 
 hr {
@@ -37,23 +39,24 @@ hr {
   font-weight: 700;
 }
 
-button {
-  margin: 0px 5px;
-  border: 0px solid var(--salmon);
+.activeTab {
+  border: 2px solid var(--fourth-color);
+}
+
+.cleanFiltersButton {
+  margin: 5px 5px;
+  border: 2px solid var(--background-color);
+  text-align: right;
   border-radius: 6px;
   padding: 10px 25px;
-  color: var(--salmon);
+  color: var(--background-color);
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   transition: 0.3s ease-in-out;
-  background-color: var(--background-color);
+  background-color: var(--second-color);
 }
 
-button:hover {
+.cleanFiltersButton:hover {
   opacity: 0.7;
   cursor: pointer;
-}
-
-.activeTab {
-  border: 1px solid var(--salmon);
 }
